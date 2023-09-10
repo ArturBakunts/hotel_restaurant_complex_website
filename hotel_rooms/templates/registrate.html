@@ -14,8 +14,8 @@
 
         /* Set background color and text color */
         body {
-            background-color: #f0f8ff; /* Alice Blue */
-            color: #333;
+            background-color: #967859;
+            color: #B9AFA1;
             font-family: Arial, sans-serif;
         }
 
@@ -26,25 +26,30 @@
             align-items: center;
             text-align: center;
             padding: 20px;
-            background-color: #0077b6; /* Arctic Blue */
+            background-color: #756A5E;
         }
 
         header h1 {
             font-size: 36px;
             margin-bottom: 10px;
-            color: #fff;
+            color: #fff; /* White */
         }
 
-        /* Style for the home button */
+        /* Style for the home button in the navigation line */
         header a.home-button {
             text-decoration: none;
             padding: 10px 20px;
-            background-color: #0077b6; /* Updated to blue color */
-            color: #fff; /* Text color white */
+            background-color: #756A5E;
+            color: #fff;
             border-radius: 5px;
             font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
         }
 
+        /* Hover effect for home button in the navigation line */
+        header a.home-button:hover {
+            background-color: #B9AFA1;
+        }
 
         /* Center-align "Room Reservation" */
         .header-title {
@@ -72,14 +77,14 @@
 
         .reservation-form h2 {
             font-size: 24px;
-            color: #0077b6; /* Arctic Blue */
+            color: #967859;
             margin-bottom: 10px;
         }
 
         .reservation-form label {
             font-size: 18px;
             color: #333;
-            text-align: left; /* Align labels to the left */
+            text-align: left;
         }
 
         .reservation-form input[type="text"],
@@ -90,13 +95,13 @@
             width: 100%;
             padding: 10px;
             margin: 8px 0;
-            border: 1px solid #b0c4de;
+            border: 1px solid #B9AFA1;
             border-radius: 5px;
         }
 
         .reservation-form button {
-            background-color: #0077b6; /* Arctic Blue - Button color */
-            color: #fff; /* Text color white */
+            background-color: #967859;
+            color: #fff; /
             border: none;
             padding: 10px 20px;
             font-size: 16px;
@@ -106,7 +111,7 @@
 
         /* Hover effect for the submit button */
         .reservation-form button:hover {
-            background-color: #005b8e; /* Darker Arctic Blue on hover */
+            background-color: #A86635;
         }
 
         /* Package blocks styles */
@@ -121,7 +126,7 @@
 
         .package h3 {
             font-size: 24px;
-            color: #0077b6; /* Arctic Blue */
+            color: #967859;
             margin-bottom: 10px;
         }
 
@@ -131,169 +136,166 @@
         }
 
         .package li::before {
-            content: "\2022"; /* Add bullet symbol before each item */
-            color: #0077b6; /* Arctic Blue */
+            content: "\2022";
+            color: #967859;
             font-weight: bold;
             display: inline-block;
             width: 1em;
             margin-left: -1em;
         }
 
-       /* Footer styles */
         footer {
-            background-color: #0077b6; /* Arctic Blue */
-            color: #fff;
+            background-color: #756A5E;
+        / color: #fff;
             text-align: center;
             padding: 20px 0;
         }
 
         footer h3 {
             font-size: 24px;
-            color: #fff; /* Text color white */
+            color: #fff;
         }
 
         footer p {
             font-size: 18px;
             margin: 10px 0;
-            color: #fff; /* Text color white */
+            color: #fff;
         }
 
         /* Contact info styles */
         .contact-info {
-            background-color: #005b8e; /* Darker Arctic Blue */
+            background-color: #966D4A;
             padding: 20px 0;
-            color: #fff; /* Text color white */
+            color: #fff;
             display: flex;
-            flex-direction: row; /* Display contact info horizontally */
-            justify-content: space-around; /* Space items evenly */
+            flex-direction: row;
+            justify-content: space-around;
             align-items: center;
         }
 
         .contact-info h3 {
             font-size: 24px;
             margin-bottom: 10px;
-            color: #fff; /* Text color white */
+            color: #fff;
         }
 
         .contact-info p {
             font-size: 18px;
             margin: 10px 0;
-            color: #fff; /* Text color white */
+            color: #fff;
         }
     </style>
 </head>
 <body>
-    <header>
-        <a href="http://127.0.0.1:8000/" class="home-button">Home</a>
-        <div class="header-title">
-            <h1>Room Reservation</h1>
-        </div>
-    </header>
+<header>
+    <a href="http://127.0.0.1:8000/" class="home-button">Home</a>
+    <div class="header-title">
+        <h1>Room Reservation</h1>
+    </div>
+</header>
 
-    <div class="container">
-        <div class="reservation-form">
-            <h2>Reservation Details</h2>
-         <form method="post" action="{% url 'reserve' %}">
-    {% csrf_token %}
-    <div class="form-group">
-        <label for="name">Full Name:</label>
-        <input type="text" id="name" name="name" required>
+<div class="container">
+    <div class="reservation-form">
+        <h2>Reservation Details</h2>
+        <form method="post" action="{% url 'reserve' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="room-type">Room Type:</label>
+                <select id="room-type" name="room-type" required>
+                    {% for room_type in room_types %}
+                    <option value="{{ room_type.id }}">{{ room_type.title }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="room-option">Room Option:</label>
+                <select id="room-option" name="room-option" required>
+                    {% for room_option in room_options %}
+                    <option value="{{ room_option.id }}">{{ room_option.title }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="check-in">Check-In Date:</label>
+                <input type="date" id="check-in" name="check-in" required>
+            </div>
+
+            <div class="form-group">
+                <label for="check-out">Check-Out Date:</label>
+                <input type="date" id="check-out" name="check-out" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Additional Message:</label>
+                <textarea id="message" name="message" rows="4"></textarea>
+            </div>
+
+            <button type="submit" name="submit">Submit Reservation</button>
+        </form>
     </div>
 
-    <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+    <div class="package">
+        <h3>Standard Package</h3>
+        <ul>
+            <li>Room Service</li>
+            <li>Free High-Speed Internet</li>
+            <li>Air Conditioning</li>
+        </ul>
     </div>
 
-    <div class="form-group">
-        <label for="room-type">Room Type:</label>
-        <select id="room-type" name="room-type" required>
-            {% for room_type in room_types %}
-                <option value="{{ room_type.id }}">{{ room_type.title }}</option>
-            {% endfor %}
-        </select>
+    <div class="package">
+        <h3>Medium Package</h3>
+        <ul>
+            <li>City View</li>
+            <li>Include Breakfast</li>
+            <li>Room Service</li>
+            <li>Free High-Speed Internet</li>
+            <li>Air Conditioning</li>
+            <li> + 25 $</li>
+        </ul>
     </div>
 
-    <div class="form-group">
-        <label for="room-option">Room Option:</label>
-        <select id="room-option" name="room-option" required>
-            {% for room_option in room_options %}
-                <option value="{{ room_option.id }}">{{ room_option.title }}</option>
-            {% endfor %}
-        </select>
+    <div class="package">
+        <h3>Premium Package</h3>
+        <ul>
+            <li>Include Breakfast</li>
+            <li>Dinner</li>
+            <li>Supper</li>
+            <li>Minibar</li>
+            <li>Free Parking</li>
+            <li>Fitness Center</li>
+            <li>City View</li>
+            <li>Room Service</li>
+            <li>Free High-Speed Internet</li>
+            <li>Air Conditioning</li>
+            <li> + 50 $</li>
+        </ul>
     </div>
+</div>
 
-    <div class="form-group">
-        <label for="check-in">Check-In Date:</label>
-        <input type="date" id="check-in" name="check-in" required>
-    </div>
+<!-- Footer with contact information -->
+<div class="contact-info">
+    <h3>Contact Information</h3>
+    <p>Hotel Address: 001 Abovyan Street, Yerevan, BL 00001</p>
+    <p>Phone: +374(55) 20-20-11</p>
+    <p>Email: bakuntsartur93@gmail.com</p>
+</div>
 
-    <div class="form-group">
-        <label for="check-out">Check-Out Date:</label>
-        <input type="date" id="check-out" name="check-out" required>
-    </div>
-
-    <div class="form-group">
-        <label for="message">Additional Message:</label>
-        <textarea id="message" name="message" rows="4"></textarea>
-    </div>
-
-    <button type="submit" name="submit">Submit Reservation</button>
-</form>
-
-        </div>
-
-
-        <div class="package">
-            <h3>Standard Package</h3>
-            <ul>
-                <li>Room Service</li>
-                <li>Free High-Speed Internet</li>
-                <li>Air Conditioning</li>
-            </ul>
-        </div>
-
-        <div class="package">
-            <h3>Medium Package</h3>
-            <ul>
-                <li>City View</li>
-                <li>Include Breakfast</li>
-                <li>Room Service</li>
-                <li>Free High-Speed Internet</li>
-                <li>Air Conditioning</li>
-                <li> + 25 $</li>
-            </ul>
-        </div>
-
-        <div class="package">
-            <h3>Premium Package</h3>
-            <ul>
-                <li>Include Breakfast</li>
-                <li>Dinner</li>
-                <li>Supper</li>
-                <li>Minibar</li>
-                <li>Free Parking</li>
-                <li>Fitness Center</li>
-                <li>City View</li>
-                <li>Room Service</li>
-                <li>Free High-Speed Internet</li>
-                <li>Air Conditioning</li>
-                <li> + 50 $</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Contact Information -->
-    <div class="contact-info">
-        <h3>Contact Information</h3>
-        <p>Hotel Address: 001 Abovyan Street, Yerevan, BL 00001</p>
-        <p>Phone: +374(55) 20-20-11</p>
-        <p>Email: bakuntsartur93@gmail.com</p>
-    </div>
-
-    <footer>
-        <h3>Thank You for Choosing BakArt Hotel</h3>
-        <p>Your Luxury Getaway Destination</p>
-    </footer>
+<footer>
+    <h3>Thank You for Choosing BakArt Hotel</h3>
+    <p>Your Luxury Getaway Destination</p>
+</footer>
 </body>
 </html>

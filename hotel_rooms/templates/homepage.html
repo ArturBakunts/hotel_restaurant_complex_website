@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+<html lang="en">
 <head>
     {% load static %}
     <meta charset="UTF-8">
@@ -7,18 +8,16 @@
     <title>BakArt Hotel</title>
     <style>
 
-        /* Reset some default styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-
-        /* Set background color and text color */
+        /* Set background color to beige and white */
         body {
-            background-color: #f0f8ff; /* Alice Blue */
-            color: #333;
+            background-color: #967859;
+            color: #B9AFA1;
             font-family: Arial, sans-serif;
         }
 
@@ -26,7 +25,7 @@
         header {
             text-align: center;
             padding: 20px;
-            background-color: #0077b6; /* Arctic Blue */
+            background-color: #756A5E;
         }
 
         header h1 {
@@ -43,9 +42,9 @@
         /* Navigation styles */
         nav {
             display: flex;
-            justify-content: center; /* Center align buttons horizontally */
+            justify-content: center;
             align-items: center;
-            background-color: #00b4d8; /* Powder Blue */
+            background-color: #B9AFA1;
             padding: 10px;
         }
 
@@ -54,14 +53,9 @@
             color: #fff;
             margin: 0 20px;
             font-size: 18px;
-            background-color: #0077b6; /* Arctic Blue - Button color */
-            padding: 10px 20px; /* Add padding to buttons */
-            border-radius: 5px; /* Add border radius to buttons */
-        }
-
-        .room img {
-            width: 700px;
-            height: auto;
+            background-color: #756A5E;
+            padding: 10px 20px;
+            border-radius: 5px;
         }
 
         /* Room description blocks with smaller size */
@@ -70,12 +64,12 @@
             flex-wrap: wrap;
             justify-content: space-between;
             max-width: 800px;
-            margin: 20px auto; /* Move all blocks down */
+            margin: 20px auto;
         }
 
         .room {
-            flex-basis: calc(33.33% - 20px); /* Smaller block size with a little space in between */
-            background-color: #90e0ef; /* Baby Blue */
+            flex-basis: calc(33.33% - 20px);
+            background-color: #fff;
             padding: 15px;
             margin-bottom: 20px;
             border-radius: 10px;
@@ -87,7 +81,7 @@
         /* Room title styles */
         .room h2 {
             font-size: 24px;
-            color: #0077b6; /* Arctic Blue */
+            color: #967859;
         }
 
         /* Room description styles */
@@ -103,48 +97,50 @@
             color: #333;
         }
 
-        /* Reserve button */
-        .reserve-button {
-            background-color: #0077b6; /* Arctic Blue - Button color */
-            color: #fff; /* Text color white */
-            border: none;
+
+        .nav-bar-buttons {
+            background-color: #756A5E;
+            color: #fff;
+            margin: 0 20px;
+            font-size: 18px;
             padding: 10px 20px;
-            font-size: 16px;
             border-radius: 5px;
-            cursor: pointer;
         }
 
-        /* Hover effect for reserve button */
-        .reserve-button:hover {
-            background-color: #005b8e; /* Darker Arctic Blue on hover */
+        /* Hover effect for the "Reserve Room" button */
+        .nav-bar-buttons:hover {
+            background-color: #B9AFA1;
         }
 
-
+        .room img {
+            width: 700px;
+            height: auto;
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to BakArt Hotel</h1>
-        <p>Discover a World of Luxury and Comfort</p>
-    </header>
+<header>
+    <h1>Welcome to BakArt Restaurant And Hotel Complex</h1>
+    <p>Discover a World of Luxury and Comfort</p>
+</header>
 
-    <nav>
-        <a href="http://127.0.0.1:8000/about/">About Us</a>
-        <a href="#">Home</a>
-        <a href="http://127.0.0.1:8000/registrate/" class="reserve-button">Reserve Now</a>
-    </nav>
+<nav>
+    <a href="http://127.0.0.1:8000/registrate/" class="nav-bar-buttons">Make a Reservation</a>
+    <a href="#" class="nav-bar-buttons">Dining</a>
+    <a href="http://127.0.0.1:8000/about/" class="nav-bar-buttons">About Us</a>
+    <a href="#" class="nav-bar-buttons">Sign in</a>
+</nav>
 
-    <div class="room-container">
-        {% for room in rooms %}
-        <div class="room">
-            <h2>{{ room.title }}</h2>
-             <img src="{{ room.image.url }}" alt="{{ room.name }} Image">
-            <p>{{ room.description }}</p>
-            <p class="price">Price Range: {{ room.price_optional }}</p>
-        </div>
-        {% endfor %}
+<div class="room-container">
+    {% for room in rooms %}
+    <div class="room">
+        <h2>{{ room.title }}</h2>
+        <img src="{{ room.image.url }}" alt="{{ room.name }} Image">
+        <p>{{ room.description }}</p>
+        <p class="price">Price Range: {{ room.price_optional }}</p>
     </div>
-
+    {% endfor %}
+</div>
 </body>
+</html>
 {% endblock %}
-

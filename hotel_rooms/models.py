@@ -18,7 +18,7 @@ class Room(models.Model):
 class RoomOption(models.Model):
     title = models.CharField(max_length=50, default='')
     options = models.CharField(max_length=300, default='')
-    ind = models.IntegerField(default=0, )
+    ind = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title

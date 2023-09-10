@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-         /* Footer styles */
+
+        body, html {
+            background-color: #756A5E;
+        }
+
+        /* Footer styles */
         footer {
-            background-color: #0077b6; /* Arctic Blue */
+            background-color: #756A5E; /
             color: #fff;
             text-align: center;
             padding: 20px 0;
@@ -14,51 +19,51 @@
 
         footer h3 {
             font-size: 24px;
-            color: #fff; /* Text color white */
+            color: #fff;
         }
 
         footer p {
             font-size: 18px;
             margin: 10px 0;
-            color: #fff; /* Text color white */
+            color: #fff;
         }
 
         /* Contact info styles */
         .contact-info {
-            background-color: #005b8e; /* Darker Arctic Blue */
+            background-color: #756A5E;
             padding: 20px 0;
-            color: #fff; /* Text color white */
+            color: #fff;
             display: flex;
-            flex-direction: row; /* Display contact info horizontally */
-            justify-content: space-around; /* Space items evenly */
+            flex-direction: row;
+            justify-content: space-around;
             align-items: center;
         }
 
         .contact-info h3 {
             font-size: 24px;
             margin-bottom: 10px;
-            color: #fff; /* Text color white */
+            color: #fff;
         }
 
         .contact-info p {
             font-size: 18px;
             margin: 10px 0;
-            color: #fff; /* Text color white */
+            color: #fff;
         }
     </style>
 </head>
 <body>
 {% block content %}{% endblock %}
 <main class="container">
-    <div class="contact-info">
-        <h3>Contact Information</h3>
-        <p>Hotel Address: 001 Abovyan Street, Yerevan, BL 00001</p>
-        <p>Phone: +374(55) 20-20-11</p>
-        <p>Email: bakuntsartur93@gmail.com</p>
-    </div>
+    <div class="contact-info" style="background-color: #966D4A;">
+    <h3>Contact Information</h3>
+    <p>Hotel Address: 001 Abovyan Street, Yerevan, BL 00001</p>
+    <p>Phone: +374(55) 20-20-11</p>
+    <p>Email: bakuntsartur93@gmail.com</p>
+</div>
 </main>
 <footer>
-    <h3>Thank You for Choosing BakArt Hotel</h3>
+    <h3>Thank You for Choosing BakArt Restaurant And Hotel Complex</h3>
     <p>Your Luxury Getaway Destination</p>
 </footer>
 </body>

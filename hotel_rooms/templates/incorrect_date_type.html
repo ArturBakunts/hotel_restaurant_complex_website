@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
     <style>
-        /* Reset some default styles */
+
         * {
             margin: 0;
             padding: 0;
@@ -14,8 +14,8 @@
 
         /* Set background color and text color */
         body {
-            background-color: #f0f8ff; /* Alice Blue */
-            color: #333;
+            background-color: #967859;
+            color: #B9AFA1;
             font-family: Arial, sans-serif;
         }
 
@@ -26,23 +26,29 @@
             align-items: center;
             text-align: center;
             padding: 20px;
-            background-color: #0077b6; /* Arctic Blue */
+            background-color: #756A5E;
         }
 
         header h1 {
             font-size: 36px;
             margin-bottom: 10px;
-            color: #fff;
+            color: #fff; /* White */
         }
 
         /* Style for the home button */
         header a.home-button {
             text-decoration: none;
             padding: 10px 20px;
-            background-color: #0077b6; /* Updated to blue color */
-            color: #fff; /* Text color white */
+            background-color: #756A5E;
+            color: #fff;
             border-radius: 5px;
             font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Hover effect for home button */
+        header a.home-button:hover {
+            background-color: #B9AFA1;
         }
 
         /* Center-align "Room Reservation" */
@@ -64,7 +70,7 @@
 
         .message-container h2 {
             font-size: 24px;
-            color: #0077b6; /* Arctic Blue */
+            color: #967859;
             margin-bottom: 10px;
         }
 
@@ -76,19 +82,19 @@
     </style>
 </head>
 <body>
-    <header>
-        <a href="http://127.0.0.1:8000" class="home-button">Home</a>
-        <div class="header-title">
-            <h1>Room Reservation</h1>
-        </div>
-    </header>
-
-    <div class="message-container">
-        <h2>Registration Status</h2>
-
-        <p class="error-message">Error: Please check your registration data and try again.</p>
-
+<header>
+    <a href="http://127.0.0.1:8000" class="home-button">Home</a>
+    <div class="header-title">
+        <h1>Room Reservation</h1>
     </div>
+</header>
+
+<div class="message-container">
+    <h2>Registration Status</h2>
+
+    <p class="error-message">Error: Please check your registration data and try again.</p>
+
+</div>
 
 </body>
 {% endblock %}
