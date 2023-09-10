@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% block content %}
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BakArt Hotel</title>
+    <style>
+
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* Set background color and text color */
+        body {
+            background-color: #f0f8ff; /* Alice Blue */
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header styles */
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #0077b6; /* Arctic Blue */
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        header p {
+            font-size: 18px;
+            color: #fff;
+        }
+
+        /* Navigation styles */
+        nav {
+            display: flex;
+            justify-content: center; /* Center align buttons horizontally */
+            align-items: center;
+            background-color: #00b4d8; /* Powder Blue */
+            padding: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 20px;
+            font-size: 18px;
+            background-color: #0077b6; /* Arctic Blue - Button color */
+            padding: 10px 20px; /* Add padding to buttons */
+            border-radius: 5px; /* Add border radius to buttons */
+        }
+
+        .room img {
+            width: 700px;
+            height: auto;
+        }
+
+        /* Room description blocks with smaller size */
+        .room-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 800px;
+            margin: 20px auto; /* Move all blocks down */
+        }
+
+        .room {
+            flex-basis: calc(33.33% - 20px); /* Smaller block size with a little space in between */
+            background-color: #90e0ef; /* Baby Blue */
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid #b0c4de;
+        }
+
+        /* Room title styles */
+        .room h2 {
+            font-size: 24px;
+            color: #0077b6; /* Arctic Blue */
+        }
+
+        /* Room description styles */
+        .room p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* Price styles */
+        .room .price {
+            font-size: 18px;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        /* Reserve button */
+        .reserve-button {
+            background-color: #0077b6; /* Arctic Blue - Button color */
+            color: #fff; /* Text color white */
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Hover effect for reserve button */
+        .reserve-button:hover {
+            background-color: #005b8e; /* Darker Arctic Blue on hover */
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to BakArt Hotel</h1>
+        <p>Discover a World of Luxury and Comfort</p>
+    </header>
+
+    <nav>
+        <a href="http://127.0.0.1:8000/about/">About Us</a>
+        <a href="#">Home</a>
+        <a href="http://127.0.0.1:8000/registrate/" class="reserve-button">Reserve Now</a>
+    </nav>
+
+    <div class="room-container">
+        {% for room in rooms %}
+        <div class="room">
+            <h2>{{ room.title }}</h2>
+             <img src="{{ room.image.url }}" alt="{{ room.name }} Image">
+            <p>{{ room.description }}</p>
+            <p class="price">Price Range: {{ room.price_optional }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+</body>
+{% endblock %}
+

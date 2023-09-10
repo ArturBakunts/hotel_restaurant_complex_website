@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% block content %}
+    <header>
+         <title>About BakArt Hotel</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Set background color and text color */
+        body {
+            background-color: #f0f8ff; /* Alice Blue */
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header styles */
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #0077b6; /* Arctic Blue */
+            color: #fff;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            display: inline-block; /* Display h1 and button in the same line */
+        }
+
+        /* Home button styles */
+        .home-button {
+            position: absolute;
+            top: 20px;
+            left: 20px; /* Adjust the left position as needed */
+        }
+
+        .home-button a {
+            text-decoration: none;
+            background-color: #0077b6; /* Arctic Blue background */
+            color: #fff; /* White text color */
+            border: 2px solid #0077b6; /* Arctic Blue border */
+            padding: 15px 30px; /* Increase button size */
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* About Us section styles */
+        .about-us {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-us h2 {
+            font-size: 24px;
+            color: #0077b6; /* Arctic Blue */
+            margin-bottom: 10px;
+        }
+
+        .about-us p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+
+    </style>
+        <div class="home-button">
+            <a href="http://127.0.0.1:8000">Home</a>
+        </div>
+        <h1>About BakArt Hotel</h1>
+    </header>
+    <div class="about-us">
+        <h2>Our Story</h2>
+        <p>Established with a passion for hospitality, BakArt Hotel opened its doors with a vision to redefine luxury. Our journey began in 2014, and since then, we have consistently provided an unparalleled blend of opulence and personalized care to our esteemed guests. Our dedicated team is committed to ensuring your every need is met with a smile. Whether it's arranging special requests, recommending local attractions, or catering to your dining preferences, our staff is here to make your experience seamless and memorable. Your journey with us begins from the moment you step through our doors. Come and experience the magic of our hotel where each day is an opportunity to create stories that last a lifetime.</p>
+        <h2>Our Commitment</h2>
+        <p>At BakArt Hotel, we are committed to creating a warm and welcoming environment for our guests. Our passion for hospitality drives us to exceed your expectations in every way. From the moment you arrive, you'll experience the perfect blend of luxury, comfort, and personalized service. We believe that every stay with us should be an unforgettable experience, and we are dedicated to making your visit truly special.</p>
+        <h2>Experience Luxury</h2>
+        <p>Our hotel is designed to provide you with the ultimate in comfort and relaxation. Our luxurious rooms and suites are equipped with top-notch amenities, and our dining options offer a taste of culinary excellence. Whether you're here for business or leisure, BakArt Hotel is the perfect choice for those seeking a refined and memorable stay.</p>
+    </div>
+{% endblock %}

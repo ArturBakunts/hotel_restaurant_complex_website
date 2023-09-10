@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+         /* Footer styles */
+        footer {
+            background-color: #0077b6; /* Arctic Blue */
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer h3 {
+            font-size: 24px;
+            color: #fff; /* Text color white */
+        }
+
+        footer p {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #fff; /* Text color white */
+        }
+
+        /* Contact info styles */
+        .contact-info {
+            background-color: #005b8e; /* Darker Arctic Blue */
+            padding: 20px 0;
+            color: #fff; /* Text color white */
+            display: flex;
+            flex-direction: row; /* Display contact info horizontally */
+            justify-content: space-around; /* Space items evenly */
+            align-items: center;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #fff; /* Text color white */
+        }
+
+        .contact-info p {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #fff; /* Text color white */
+        }
+    </style>
+</head>
+<body>
+{% block content %}{% endblock %}
+<main class="container">
+    <div class="contact-info">
+        <h3>Contact Information</h3>
+        <p>Hotel Address: 001 Abovyan Street, Yerevan, BL 00001</p>
+        <p>Phone: +374(55) 20-20-11</p>
+        <p>Email: bakuntsartur93@gmail.com</p>
+    </div>
+</main>
+<footer>
+    <h3>Thank You for Choosing BakArt Hotel</h3>
+    <p>Your Luxury Getaway Destination</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Free Rooms</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Set background color and text color */
+        body {
+            background-color: #f0f8ff; /* Alice Blue */
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Notification message styles */
+        .notification {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .notification h2 {
+            font-size: 24px;
+            color: #0077b6; /* Arctic Blue */
+            margin-bottom: 20px;
+        }
+
+        .notification p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        /* Home button styles */
+        .home-button {
+            text-align: center;
+        }
+
+        .home-button a {
+            text-decoration: none;
+            background-color: #0077b6; /* Arctic Blue background */
+            color: #fff; /* White text color */
+            border: 2px solid #0077b6; /* Arctic Blue border */
+            padding: 15px 30px; /* Increase button size */
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Hover effect for home button */
+        .home-button a:hover {
+            background-color: #fff; /* White background on hover */
+            color: #0077b6; /* Arctic Blue text color on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="notification">
+        <h2>Sorry, No Free Rooms</h2>
+        <p>Apologies, there are no free rooms in the type you want. You can reserve another type of room.</p>
+    </div>
+
+    <div class="home-button">
+        <a href="http://127.0.0.1:8000/">Back to Home</a>
+    </div>
+</body>
+{% endblock %}
