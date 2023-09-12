@@ -24,7 +24,7 @@
         }
 
         header h1 {
-            font-size: 36px;
+            font-size: 48px; /* Increase the font size */
             margin-bottom: 10px;
             color: #fff;
         }
@@ -46,14 +46,14 @@
         }
 
         h2 {
-            font-size: 24px;
+            font-size: 28px; /* Increase the font size */
             color: #967859;
             margin-bottom: 20px;
         }
 
         p {
             font-size: 16px;
-            line-height: 1.5;
+            line-height: 1.6; /* Increase the line height */
             margin-bottom: 10px;
         }
 
@@ -101,21 +101,25 @@
         <li><strong>python-dotenv 1.0.0</strong></li>
     </ul>
 
-    <h2>Getting Started</h2>
-    <p>Follow these steps to set up and explore the project:</p>
-    <ol>
-        <li><strong>Clone the Repository:</strong> Use Git to clone the project repository to your local machine.</li>
+ <h2>Getting Started</h2>
+<p>Follow these steps to set up and explore the project:</p>
+<ol>
+    <li><strong>Clone the Repository:</strong> Use Git to clone the project repository to your local machine.</li>
 
-        <li><strong>Install Dependencies:</strong> Run the following commands to install the required dependencies:</li>
-        <pre><code>pip install Django==4.2.5</code></pre>
-        <pre><code>pip install Pillow==10.0.0</code></pre>
-        <pre><code>pip install python-dotenv==1.0.0</code></pre>
+    <li><strong>Install Dependencies:</strong> Run the following commands to install the required dependencies:</li>
+    <pre><code>
+pip install Django==4.2.5
+pip install Pillow==10.0.0
+pip install python-dotenv==1.0.0
+    </code></pre>
 
-        <li><strong>Create Database Tables:</strong> Initialize the database by running these commands:</li>
-        <pre><code>python manage.py makemigrations</code></pre>
-        <pre><code>python manage.py migrate</code></pre>
+    <li><strong>Create Database Tables:</strong> Initialize the database by running these commands:</li>
+    <pre><code>
+python manage.py makemigrations
+python manage.py migrate
+    </code></pre>
 
-    </ol>
+</ol>
     <h2>If it's your first visit:</h2>
     <p> Click the <a href="{% url 'upload' %}" class="button">Upload Data</a></p>
 
