@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration</title>
+    <title>Table Reservation Success</title>
     <style>
 
         * {
@@ -14,8 +14,8 @@
 
         /* Set background color and text color */
         body {
-            background-color: #967859;
-            color: #B9AFA1;
+            background-color: #F4EAE6;
+            color: #333;
             font-family: Arial, sans-serif;
         }
 
@@ -32,7 +32,7 @@
         header h1 {
             font-size: 36px;
             margin-bottom: 10px;
-            color: #fff; /* White */
+            color: #F4EAE6;
         }
 
         /* Style for the home button */
@@ -40,60 +40,69 @@
             text-decoration: none;
             padding: 10px 20px;
             background-color: #756A5E;
-            color: #fff;
+            color: #F4EAE6;
             border-radius: 5px;
             font-weight: bold;
-            transition: background-color 0.3s, color 0.3s;
         }
 
-        /* Hover effect for home button */
+        /* Style for the home button */
+        header a.home-button {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #756A5E;
+            color: #F4EAE6;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease; /* Add transition for smooth color change */
+        }
+
+        /* Add hover effect */
         header a.home-button:hover {
-            background-color: #B9AFA1;
+            background-color: #B9AFA1; /* Change the background color when hovering */
         }
 
-        /* Center-align "Room Reservation" */
+        /* Center-align "Table Reservation" */
         .header-title {
             flex: 1;
             text-align: center;
         }
 
-        /* Error message container */
-        .message-container {
+        /* Success message container */
+        .success-container {
             max-width: 600px;
             margin: 20px auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: #F4EAE6;
             border-radius: 10px;
             box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
             text-align: center;
         }
 
-        .message-container h2 {
+        .success-container h2 {
             font-size: 24px;
-            color: #967859;
+            color: #756A5E;
             margin-bottom: 10px;
         }
 
-        .error-message {
-            color: red;
-            font-weight: bold;
+        .success-message {
+            font-size: 18px;
+            color: #333;
         }
 
     </style>
 </head>
 <body>
 <header>
-    <a href="http://127.0.0.1:8000" class="home-button">Home</a>
+    <a href="{% url 'homepage' %}" class="home-button">Home</a>
     <div class="header-title">
-        <h1>Room Reservation</h1>
+        <h1>Table Reservation</h1>
     </div>
 </header>
 
-<div class="message-container">
-    <h2>Registration Status</h2>
-
-    <p class="error-message">Error: Please check your registration data and try again.</p>
-
+<div class="success-container">
+    <h2>Reservation Successful</h2>
+    <p class="success-message">Thank you for reserving a restaurant table. Your reservation has been successfully
+        processed. We have sent you a confirmation email.</p>
 </div>
 
 </body>

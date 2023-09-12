@@ -7,30 +7,31 @@ from datetime import datetime
 from .send_success_email import send_confirmation_email
 
 
-def registrate(request):
+def reserve_room(request):
     room_types = Room.objects.all()
     room_options = RoomOption.objects.all()
-    return render(request, 'registrate.html', {'room_types': room_types, 'room_options': room_options})
+    return render(request, 'hotel_rooms/reservation_hotel_room.html', {'room_types': room_types, 'room_options': room_options})
 
 
 def success(request):
-    return render(request, 'success_page.html')
+    return render(request, 'hotel_rooms/success_room_reservation.html')
 
 
 def incorrect_date_type(request):
-    return render(request, 'incorrect_date_type.html')
+    return render(request, 'hotel_rooms/incorrect_date_type.html')
 
 
-def reserve(request):
-    try:
-        if request.method == 'POST':
-            full_name = request.POST['name']
-            email = request.POST['email']
-            room_type_id = request.POST['room-type']
-            room_option_id = request.POST['room-option']
-            check_in_date = request.POST['check-in']
-            check_out_date = request.POST['check-out']
-            additional_message = request.POST['message']
+def reserve_room_data(request):
+    if request.method == 'POST':
+        try:
+            full_name = request.POST.get('name')
+            email = request.POST.get('email')
+            room_type_id = request.POST.get('room-type')
+            room_option_id = request.POST.get('room-option')
+            check_in_date = request.POST.get('check-in')
+            check_out_date = request.POST.get('check-out')
+            additional_message = request.POST.get('message')
+
             price = calculate_price(room_type_id, room_option_id, check_in_date, check_out_date)
 
             reserved_room = ReservedRoom(
@@ -47,15 +48,21 @@ def reserve(request):
             if is_free_room(room_type_id):
                 reserved_room.save()
 
-                send_confirmation_email(email=email, name=full_name, check_in=check_in_date, check_out=check_out_date,
-                                        room_type=Room.objects.get(pk=room_type_id),
-                                        options_for_room=RoomOption.objects.get(pk=room_option_id), price=price
-                                        )
-                return redirect('success_page')
+                send_confirmation_email(
+                    email=email,
+                    name=full_name,
+                    check_in=check_in_date,
+                    check_out=check_out_date,
+                    room_type=Room.objects.get(pk=room_type_id),
+                    options_for_room=RoomOption.objects.get(pk=room_option_id),
+                    price=price
+                )
+
+                return redirect('success_room_reservation_page')
             else:
-                return render(request, 'no_free_rooms.html')
-    except:
-        return incorrect_date_type(request)
+                return render(request, 'hotel_rooms/no_free_rooms.html')
+        except:
+            return incorrect_date_type(request)
 
 
 def calculate_price(room_type_id, room_option_id, check_in_date, check_out_date):

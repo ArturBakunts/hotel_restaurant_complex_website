@@ -19,9 +19,14 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from this_for_first_time_runing import first_time_view
+
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path('', include('hotel_rooms.urls')),
+    path('', first_time_view.index, name='index'),
+    path('admin/', admin.site.urls),
+    path('upload/data/', first_time_view.upload_data, name='upload'),
+    path('hotel/', include('hotel_rooms.urls')),
+    path('restaurant/', include('hotel_restaurant.urls')),
 ]
 
 if settings.DEBUG:

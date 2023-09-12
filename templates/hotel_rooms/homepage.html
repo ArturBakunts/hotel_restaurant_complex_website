@@ -125,10 +125,10 @@
 </header>
 
 <nav>
-    <a href="http://127.0.0.1:8000/registrate/" class="nav-bar-buttons">Make a Reservation</a>
-    <a href="#" class="nav-bar-buttons">Dining</a>
-    <a href="http://127.0.0.1:8000/about/" class="nav-bar-buttons">About Us</a>
-    <a href="#" class="nav-bar-buttons">Sign in</a>
+    <a href="{% url 'reservation_room' %}" class="nav-bar-buttons">Make a Reservation</a>
+    <a href="{% url 'dining' %}" class="nav-bar-buttons">Dining</a>
+    <a href="{% url 'about' %}" class="nav-bar-buttons">About Us</a>
+    <a href="" class="nav-bar-buttons">Sign in</a>
 </nav>
 
 <div class="room-container">

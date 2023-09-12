@@ -6,7 +6,7 @@ from django.template.loader import get_template
 def send_confirmation_email(email, name, check_in, check_out, room_type, options_for_room, price):
     subject = "BakArt Hotel Reservation Confirmation"
 
-    email_template = get_template('send_conf_email.html')
+    email_template = get_template('hotel_rooms/send_conf_email.html')
 
     context = {
         'user_name': name,

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BakArt Project - Information</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #967859;
+            color: #B9AFA1;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #756A5E;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        header p {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .info-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid #b0c4de;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #967859;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .button {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            background-color: #756A5E;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+
+        .button:hover {
+            background-color: #B9AFA1;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Welcome to My First Project</h1>
+    <p>https://github.com/Art01ur/hotel_restaurant_complex_website.git</p>
+</header>
+
+<div class="info-container">
+    <h2>Project Information</h2>
+    <p>Thank you for visiting my page on GitHub. As a junior Python developer, I'm excited to share this project with
+        you.</p>
+
+    <h2>Required Dependencies</h2>
+    <p>Before getting started, ensure you have the following dependencies installed:</p>
+    <ul>
+        <li><strong>Django 4.2.5</strong></li>
+        <li><strong>Pillow 10.0.0</strong></li>
+        <li><strong>python-dotenv 1.0.0</strong></li>
+    </ul>
+
+    <h2>Getting Started</h2>
+    <p>Follow these steps to set up and explore the project:</p>
+    <ol>
+        <li><strong>Clone the Repository:</strong> Use Git to clone the project repository to your local machine.</li>
+
+        <li><strong>Install Dependencies:</strong> Run the following commands to install the required dependencies:</li>
+        <pre><code>pip install Django==4.2.5</code></pre>
+        <pre><code>pip install Pillow==10.0.0</code></pre>
+        <pre><code>pip install python-dotenv==1.0.0</code></pre>
+
+        <li><strong>Create Database Tables:</strong> Initialize the database by running these commands:</li>
+        <pre><code>python manage.py makemigrations</code></pre>
+        <pre><code>python manage.py migrate</code></pre>
+
+    </ol>
+    <h2>If it's your first visit:</h2>
+    <p> Click the <a href="{% url 'upload' %}" class="button">Upload Data</a></p>
+
+    <h2>If you uploaded data:</h2>
+    <p>Click the <a href="{% url 'homepage' %}" class="button">Homepage</a></p>
+
+
+</div>
+</body>
+</html>

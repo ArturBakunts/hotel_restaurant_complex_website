@@ -9,7 +9,7 @@ class Room(models.Model):
     free_room_qty = models.IntegerField(default=0)
     default_price = models.IntegerField(default=0)
     description = models.CharField(max_length=300, default='')
-    image = models.ImageField(upload_to='room_images/', default='')
+    image = models.ImageField(upload_to='room_images/', null=True, blank=True, default=None)
 
     def __str__(self):
         return self.title
@@ -37,3 +37,5 @@ class ReservedRoom(models.Model):
 
     def __str__(self):
         return self.full_name
+
+

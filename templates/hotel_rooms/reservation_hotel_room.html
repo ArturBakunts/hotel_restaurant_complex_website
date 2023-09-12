@@ -101,8 +101,8 @@
 
         .reservation-form button {
             background-color: #967859;
-            color: #fff; /
-            border: none;
+            color: #fff;
+        / border: none;
             padding: 10px 20px;
             font-size: 16px;
             border-radius: 5px;
@@ -188,7 +188,7 @@
 </head>
 <body>
 <header>
-    <a href="http://127.0.0.1:8000/" class="home-button">Home</a>
+    <a href="{% url 'homepage' %}" class="home-button">Home</a>
     <div class="header-title">
         <h1>Room Reservation</h1>
     </div>
@@ -197,7 +197,7 @@
 <div class="container">
     <div class="reservation-form">
         <h2>Reservation Details</h2>
-        <form method="post" action="{% url 'reserve' %}">
+        <form method="post" action="{% url 'reservation_room_data' %}">
             {% csrf_token %}
             <div class="form-group">
                 <label for="name">Full Name:</label>

@@ -1,26 +1,26 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
-from . import defs_for_correct_registration
+from . import defs_for_correct_reservation
 
 from .models import Room
 
 
 def index(request):
     rooms = Room.objects.all()
-    return render(request, 'homepage.html', {'rooms': rooms})
+    return render(request, 'hotel_rooms/homepage.html', {'rooms': rooms})
 
 
 def about_us(request):
-    return render(request, 'about.html')
+    return render(request, 'hotel_rooms/about.html')
 
 
-def registrate(request):
-    return defs_for_correct_registration.registrate(request)
+def reservation_room(request):
+    return defs_for_correct_reservation.reserve_room(request)
+
+
+def reserve_room_data(request):
+    return defs_for_correct_reservation.reserve_room_data(request)
 
 
 def success(request):
-    return defs_for_correct_registration.success(request)
-
-
-def reserve(request):
-    return defs_for_correct_registration.reserve(request)
+    return defs_for_correct_reservation.success(request)

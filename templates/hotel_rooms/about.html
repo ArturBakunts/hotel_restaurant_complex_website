@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About BakArt Hotel</title>
     <style>
-        /* Reset some default styles */
+
         * {
             margin: 0;
             padding: 0;
@@ -17,8 +17,8 @@
 
         /* Set background color to match the homepage */
         body {
-            background-color: #967859; /* HEX #967859 */
-            color: #B9AFA1; /* HEX #B9AFA1 */
+            background-color: #967859;
+            color: #B9AFA1;
             font-family: Arial, sans-serif;
         }
 
@@ -26,7 +26,7 @@
         header {
             text-align: center;
             padding: 20px;
-            background-color: #756A5E; /* HEX #756A5E */
+            background-color: #756A5E;
             color: #fff;
             position: relative;
         }
@@ -38,15 +38,15 @@
 
         /* Home button styles */
         .home-button {
-            text-align: left; /* Adjust the text alignment */
-            margin: 10px 20px; /* Add margin for spacing */
+            text-align: left;
+            margin: 10px 20px;
         }
 
         .home-button a {
             text-decoration: none;
-            background-color: #756A5E; /* HEX #756A5E - Button color */
-            color: #fff; /* Text color white */
-            border: 2px solid #756A5E; /* Border color matches button color */
+            background-color: #756A5E;
+            color: #fff;
+            border: 2px solid #756A5E;
             padding: 10px 20px;
             font-size: 18px;
             border-radius: 5px;
@@ -55,7 +55,7 @@
         }
 
         .home-button a:hover {
-            background-color: #B9AFA1; /* HEX #B9AFA1 - Darker color on hover */
+            background-color: #B9AFA1;
         }
 
         /* About Us section styles */
@@ -85,7 +85,7 @@
 <body>
 <header>
     <div class="home-button">
-        <a href="http://127.0.0.1:8000">Home</a>
+        <a href="{% url 'homepage' %}">Home</a>
     </div>
     <h1>About BakArt Hotel</h1>
 </header>

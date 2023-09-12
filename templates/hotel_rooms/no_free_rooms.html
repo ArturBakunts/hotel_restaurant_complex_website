@@ -60,18 +60,18 @@
 
         /* Hover effect for home button */
         .home-button a:hover {
-            background-color:#B9AFA1;
+            background-color: #B9AFA1;
         }
     </style>
 </head>
 <body>
-    <div class="notification">
-        <h2>Sorry, No Free Rooms</h2>
-        <p>Apologies, there are no free rooms in the type you want. You can reserve another type of room.</p>
-    </div>
+<div class="notification">
+    <h2>Sorry, No Free Rooms</h2>
+    <p>Apologies, there are no free rooms in the type you want. You can reserve another type of room.</p>
+</div>
 
-    <div class="home-button">
-        <a href="http://127.0.0.1:8000/">Back to Home</a>
-    </div>
+<div class="home-button">
+    <a href="{% url 'homepage' %}" class="home-button">Back to Home</a>
+</div>
 </body>
 {% endblock %}
