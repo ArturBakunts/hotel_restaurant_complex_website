@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Table Reservation</title>
+        <link rel="stylesheet" type="text/css" href="../../static/styles_for_reservation_table.css">
+
+    </head>
+    <body>
+    <header>
+        <h1>Welcome to BakArt Restaurant And Hotel Complex</h1>
+        <h2>Table Reservation</h2>
+
+        <nav>
+            <a href="{% url 'homepage' %}" class="home-button">Home</a>
+
+        </nav>
+    </header>
+
+    <div class="registration-container">
+        <form method="post" action="{% url 'reserve_table' %}">
+            {% csrf_token %}
+            <div class="registration-block">
+                <label class="registration-label" for="name">Name:</label>
+                <input class="registration-input" type="text" id="name" name="name" required>
+            </div>
+
+
+            <div class="registration-block">
+                <label class="registration-label" for="phone">Phone Number:</label>
+                <input class="registration-input" type="text" id="phone" name="phone" pattern="[0-9]+"
+                       title="Please enter only numeric characters" required>
+            </div>
+
+
+            <div class="registration-block">
+                <label class="registration-label" for="email">Email:</label>
+                <input class="registration-input" type="email" id="email" name="email" required>
+            </div>
+
+            <div class="registration-block">
+                <label class="registration-label" for="guest_qty">Number of Guests:</label>
+                <input class="registration-input" type="number" id="guest_qty" name="guest_qty" required>
+            </div>
+
+            <div class="registration-block">
+                <label class="registration-label" for="reservation_date">Reservation Date:</label>
+                <input class="registration-input" type="date" id="reservation_date" name="reservation_date" required>
+            </div>
+
+            <div class="registration-block">
+                <label class="registration-label" for="reservation_time">Reservation Time:</label>
+                <input class="registration-input" type="time" id="reservation_time" name="reservation_time" required>
+            </div>
+
+            <button class="registration-button" type="submit">Reserve Table</button>
+        </form>
+    </div>
+    </body>
+    </html>
+{% endblock %}

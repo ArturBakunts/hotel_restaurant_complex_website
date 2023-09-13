@@ -18,7 +18,7 @@ def success(request):
 
 
 def incorrect_date_type(request):
-    return render(request, 'hotel_rooms/incorrect_date_type.html')
+    return render(request, 'hotel_rooms/room_reservation_incorrect_date_type.html')
 
 
 def reserve_room_data(request):

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+    <html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BakArt Hotel</title>
+        <link rel="stylesheet" type="text/css" href="../../static/styles_for_index.css">
+    </head>
+    <body>
+    <header>
+        <h1>Welcome to BakArt Restaurant And Hotel Complex</h1>
+        <p>Discover a World of Luxury and Comfort</p>
+    </header>
+
+    <nav>
+        <a href="{% url 'reservation_room' %}" class="nav-bar-buttons">Make a Reservation</a>
+        <a href="{% url 'dining' %}" class="nav-bar-buttons">Dining</a>
+        <a href="{% url 'about' %}" class="nav-bar-buttons">About Us</a>
+        <a href="" class="nav-bar-buttons">Sign in</a>
+    </nav>
+
+    <div class="room-container">
+        {% for room in rooms %}
+            <div class="room">
+                <h2>{{ room.title }}</h2>
+                <img src="{{ room.image.url }}" alt="{{ room.name }} Image">
+                <p>{{ room.description }}</p>
+                <p class="price">Price Range: {{ room.price_optional }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    </body>
+    </html>
+{% endblock %}

@@ -4,187 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Room Reservation</title>
-    <style>
-        /* Reset some default styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Set background color and text color */
-        body {
-            background-color: #967859;
-            color: #B9AFA1;
-            font-family: Arial, sans-serif;
-        }
-
-        /* Header styles */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-            background-color: #756A5E;
-        }
-
-        header h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-            color: #fff; /* White */
-        }
-
-        /* Style for the home button in the navigation line */
-        header a.home-button {
-            text-decoration: none;
-            padding: 10px 20px;
-            background-color: #756A5E;
-            color: #fff;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        /* Hover effect for home button in the navigation line */
-        header a.home-button:hover {
-            background-color: #B9AFA1;
-        }
-
-        /* Center-align "Room Reservation" */
-        .header-title {
-            flex: 1;
-            text-align: center;
-        }
-
-        /* Container for registration form and package blocks */
-        .container {
-            display: flex;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-
-        /* Reservation form styles */
-        .reservation-form {
-            flex: 1;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .reservation-form h2 {
-            font-size: 24px;
-            color: #967859;
-            margin-bottom: 10px;
-        }
-
-        .reservation-form label {
-            font-size: 18px;
-            color: #333;
-            text-align: left;
-        }
-
-        .reservation-form input[type="text"],
-        .reservation-form input[type="email"],
-        .reservation-form select,
-        .reservation-form input[type="date"],
-        .reservation-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            border: 1px solid #B9AFA1;
-            border-radius: 5px;
-        }
-
-        .reservation-form button {
-            background-color: #967859;
-            color: #fff;
-        / border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        /* Hover effect for the submit button */
-        .reservation-form button:hover {
-            background-color: #A86635;
-        }
-
-        /* Package blocks styles */
-        .package {
-            flex: 1;
-            margin-left: 20px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .package h3 {
-            font-size: 24px;
-            color: #967859;
-            margin-bottom: 10px;
-        }
-
-        .package ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .package li::before {
-            content: "\2022";
-            color: #967859;
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-        }
-
-        footer {
-            background-color: #756A5E;
-        / color: #fff;
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        footer h3 {
-            font-size: 24px;
-            color: #fff;
-        }
-
-        footer p {
-            font-size: 18px;
-            margin: 10px 0;
-            color: #fff;
-        }
-
-        /* Contact info styles */
-        .contact-info {
-            background-color: #966D4A;
-            padding: 20px 0;
-            color: #fff;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            align-items: center;
-        }
-
-        .contact-info h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
-            color: #fff;
-        }
-
-        .contact-info p {
-            font-size: 18px;
-            margin: 10px 0;
-            color: #fff;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="../../static/styles_for_reservation_hotel_room.css">
 </head>
 <body>
 <header>
@@ -213,7 +33,7 @@
                 <label for="room-type">Room Type:</label>
                 <select id="room-type" name="room-type" required>
                     {% for room_type in room_types %}
-                    <option value="{{ room_type.id }}">{{ room_type.title }}</option>
+                        <option value="{{ room_type.id }}">{{ room_type.title }}</option>
                     {% endfor %}
                 </select>
             </div>
@@ -222,7 +42,7 @@
                 <label for="room-option">Room Option:</label>
                 <select id="room-option" name="room-option" required>
                     {% for room_option in room_options %}
-                    <option value="{{ room_option.id }}">{{ room_option.title }}</option>
+                        <option value="{{ room_option.id }}">{{ room_option.title }}</option>
                     {% endfor %}
                 </select>
             </div>

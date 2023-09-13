@@ -7,7 +7,7 @@ from .models import Room
 
 def index(request):
     rooms = Room.objects.all()
-    return render(request, 'hotel_rooms/homepage.html', {'rooms': rooms})
+    return render(request, 'hotel_rooms/index.html', {'rooms': rooms})
 
 
 def about_us(request):
