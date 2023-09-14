@@ -1,3 +1,5 @@
+from django.shortcuts import redirect
+
 from .data_for_db import room_type_list, room_option_list
 from hotel_rooms.models import Room, RoomOption
 import os
@@ -12,16 +14,6 @@ import subprocess
 #         subprocess.run(['python', 'manage.py', 'migrate'])
 #     except Exception as e:
 #         print(f"An error occurred: {e}")
-
-
-def create_models():
-    # run_migrations()
-
-    for room_type in room_type_list:
-        create_one_room_model(room_type)
-
-    for room_option in room_option_list:
-        create_one_room_option_model(room_option)
 
 
 def create_one_room_model(room_data):
@@ -48,3 +40,18 @@ def create_one_room_option_model(option_data):
         ind=option_data['ind']
     )
     room_option.save()
+
+
+def upload_data(request):
+    create_models()
+    return redirect('homepage')
+
+
+def create_models():
+    # run_migrations()
+
+    for room_type in room_type_list:
+        create_one_room_model(room_type)
+
+    for room_option in room_option_list:
+        create_one_room_option_model(room_option)

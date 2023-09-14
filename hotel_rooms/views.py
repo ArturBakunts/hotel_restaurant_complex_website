@@ -7,7 +7,10 @@ from .models import Room
 
 def index(request):
     rooms = Room.objects.all()
-    return render(request, 'hotel_rooms/index.html', {'rooms': rooms})
+    if rooms:
+        return render(request, 'hotel_rooms/index.html', {'rooms': rooms})
+    else:
+        return redirect('upload')
 
 
 def about_us(request):
