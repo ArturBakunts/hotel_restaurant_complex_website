@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles_for_user_registration.css' %}">
+</head>
+<body>
+<div class="navbar">
+    <a class="button left-button" href="{% url 'homepage' %}">Home</a>
+    <div class="title">Registration</div>
+</div>
+
+<div class="container">
+    <div class="left-side">
+        <h2>Personal Information</h2>
+        <form method="post" action="#">
+            {% csrf_token %}
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="surname">Surname</label>
+            <input type="text" id="surname" name="surname" placeholder="Enter your surname" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" class="password-input"
+                   placeholder="Enter your password" required>
+
+            <label for="confirm">Confirm Password</label>
+            <input type="password" id="confirm" name="confirm" class="password-input"
+                   placeholder="Confirm your password" required>
+
+
+        </form>
+    </div>
+
+    <div class="right-side">
+        <h2>Payment Information</h2>
+        <form method="post" action="#">
+            {% csrf_token %}
+
+            <label for="country">Country/Region</label>
+            <input type="text" id="country" name="country" placeholder="Enter your Country/Region" required>
+
+            <label for="passport">Passport ID</label>
+            <input type="text" id="passport" name="passport" placeholder="Enter your passport ID" required>
+
+            <label for="card">Bank Card Number</label>
+            <input type="text" id="card" name="card" placeholder="Enter your bank card number" required>
+
+            <label for="expiration">Expiration Date</label>
+            <input type="text" id="expiration" name="expiration" placeholder="Enter expiration date" required>
+
+            <label for="cvv">CVV</label>
+            <input type="password" id="cvv" name="cvv" class="password-input" placeholder="Enter CVV" required>
+
+        </form>
+    </div>
+</div>
+
+<div class="buttons">
+    <button type="submit" class="button">Register</button>
+</div>
+</body>
+</html>
