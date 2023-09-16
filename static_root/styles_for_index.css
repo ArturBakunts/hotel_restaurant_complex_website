@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* Set background color to beige and white */
 body {
     background-color: #967859;
@@ -32,30 +38,7 @@ nav {
     padding: 10px;
 }
 
-/* Style all buttons with a background color */
 nav a {
-    text-decoration: none;
-    color: #fff;
-    margin: 0 20px;
-    font-size: 18px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    background-color: #756A5E; /* Set the background color for all buttons */
-    transition: background-color 0.3s; /* Add a transition for smoother color change */
-}
-
-/* Style all buttons on hover */
-nav a:hover {
-    background-color: #B9AFA1;
-}
-
-/* Modal styles */
-.modal-checkbox {
-    display: none;
-}
-
-.modal-label {
-    display: block;
     text-decoration: none;
     color: #fff;
     margin: 0 20px;
@@ -63,49 +46,6 @@ nav a:hover {
     background-color: #756A5E;
     padding: 10px 20px;
     border-radius: 5px;
-    cursor: pointer;
-}
-
-.modal-content {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-options {
-    background-color: #fff;
-    border-radius: 10px;
-    width: 80%;
-    max-width: 400px;
-    margin: 100px auto;
-    padding: 20px;
-    text-align: center;
-}
-
-.modal-checkbox:checked + .modal-content {
-    display: block;
-}
-
-.modal-close {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 24px;
-    color: #000;
-    text-decoration: none;
-}
-
-.modal-close:hover {
-    color: #ddd;
-}
-
-.sign-in-button:hover .modal-label {
-    background-color: #B9AFA1;
 }
 
 /* Room description blocks with smaller size */
@@ -145,6 +85,20 @@ nav a:hover {
     font-size: 18px;
     margin-top: 10px;
     color: #333;
+}
+
+.nav-bar-buttons {
+    background-color: #756A5E;
+    color: #fff;
+    margin: 0 20px;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+/* Hover effect for the "Reserve Room" button */
+.nav-bar-buttons:hover {
+    background-color: #B9AFA1;
 }
 
 .room img {

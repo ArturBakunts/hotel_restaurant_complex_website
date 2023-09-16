@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set background color and text color */
+body {
+    background-color: #f2f2f2;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+/* Notification message styles */
+.notification {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.notification h2 {
+    font-size: 24px;
+    color: #e74c3c;
+    margin-bottom: 20px;
+}
+
+.notification p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Home button styles */
+.home-button {
+    text-align: center;
+}
+
+.home-button a {
+    text-decoration: none;
+    background-color: #756A5E;
+    color: #fff;
+    border: 2px solid #756A5E;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hover effect for home button */
+.home-button a:hover {
+    background-color: #B9AFA1;
+}

@@ -10,15 +10,8 @@ from .send_success_email import send_confirmation_email
 def reserve_room(request):
     room_types = Room.objects.all()
     room_options = RoomOption.objects.all()
-    return render(request, 'hotel_rooms/reservation_hotel_room.html', {'room_types': room_types, 'room_options': room_options})
-
-
-def success(request):
-    return render(request, 'hotel_rooms/success_room_reservation.html')
-
-
-def incorrect_date_type(request):
-    return render(request, 'hotel_rooms/room_reservation_incorrect_date_type.html')
+    return render(request, 'hotel_rooms/reservation_hotel_room.html',
+                  {'room_types': room_types, 'room_options': room_options})
 
 
 def reserve_room_data(request):
@@ -96,3 +89,7 @@ def reserved_days_qty(check_in_date, check_out_date):
         raise ValueError
     date_delta = (date_out - date_in).days
     return date_delta
+
+
+def incorrect_date_type(request):
+    return render(request, 'hotel_rooms/room_reservation_incorrect_date_type.html')

@@ -1,25 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Table Reservation Success</title>
-        <link rel="stylesheet" type="text/css" href="../../static/styles_for_table_registration_success_page.css">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Reservation Success</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles_for_table_reservation_status.css' %}">
 
-    </head>
-    <body>
-    <header>
-        <a href="{% url 'homepage' %}" class="home-button">Home</a>
-        <div class="header-title">
-            <h1>Table Reservation</h1>
-        </div>
-    </header>
-
-    <div class="success-container">
-        <h2>Reservation Successful</h2>
-        <p class="success-message">Thank you for reserving a restaurant table. Your reservation has been successfully
-            processed. We have sent you a confirmation email.</p>
+</head>
+<body>
+<header>
+    <a href="{% url 'homepage' %}" class="home-button">Home</a>
+    <div class="header-title">
+        <h1>Table Reservation</h1>
     </div>
+</header>
 
-    </body>
+<div class="success-container">
+    <h2>Reservation Successful</h2>
+    <p class="success-message">Thank you for choosing our restaurant for your dining experience.Your registration has
+        been successfully completed. Welcome to our community. We have sent you a
+        confirmation email. We look forward to serving you soon! </p>
+</div>
+
+</body>
 {% endblock %}

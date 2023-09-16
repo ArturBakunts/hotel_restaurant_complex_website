@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles_for_table_reservation_status.css' %}">
+
+    <title>Table Reservation</title>
+</head>
+<body>
+    <header>
+        <a class="home-button" href="{% url 'homepage' %}">Home</a>
+        <div class="header-title">
+            <h1>Table Reservation</h1>
+        </div>
+    </header>
+
+    <div class="success-container">
+        <h2>Number of guests exceeds our table capacity</h2>
+        <p class="success-message">Thank you for choosing our restaurant for your dining experience. Unfortunately, we cannot accommodate your reservation request because the number of guests exceeds our table capacity. Please consider adjusting the number of guests or try again at a different time.</p>
+    </div>
+</body>
+</html>

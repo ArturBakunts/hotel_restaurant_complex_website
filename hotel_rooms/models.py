@@ -39,3 +39,25 @@ class ReservedRoom(models.Model):
         return self.full_name
 
 
+
+# from django.contrib.auth.models import AbstractUser
+# from django.db import models
+# from phonenumber_field.modelfields import PhoneNumberField
+#
+# class CustomUser(AbstractUser):
+#     phone_number = PhoneNumberField(unique=True, blank=True, null=True)
+#
+#     def __str__(self):
+#         return self.username
+
+# pip install django-phonenumber-field
+
+# В файле вашего проекта Django settings.pyдобавьте 'phonenumber_field'в INSTALLED_APPSсписок:
+# питон
+#
+# Скопировать код
+# INSTALLED_APPS = [
+#     # ...
+#     'phonenumber_field',
+#     # ...
+# ]
