@@ -1,3 +1,5 @@
+/* CSS code for styles_for_user_registration.css */
+
 * {
     margin: 0;
     padding: 0;
@@ -37,15 +39,17 @@ body {
 }
 
 .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
     width: 80%;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
     margin-top: 60px;
     padding: 20px;
+}
+
+.info-container {
+    display: flex;
+    justify-content: space-between;
 }
 
 .left-side, .right-side {
@@ -69,7 +73,7 @@ label {
     font-weight: bold;
 }
 
-input[type="text"], input[type="number"], input[type="tel"], input.password-input {
+input[type="text"], input[type="number"], input[type="tel"], input.password-input,input.email-input {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -84,7 +88,7 @@ input[type="text"], input[type="number"], input[type="tel"], input.password-inpu
 }
 
 .button {
-    padding: 10px;
+    padding: 10px 20px; /* Adjust the padding to make the button wider */
     text-align: center;
     background-color: #756A5E;
     color: #fff;

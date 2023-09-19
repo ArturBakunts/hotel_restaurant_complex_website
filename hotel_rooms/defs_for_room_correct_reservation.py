@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 
+from myexceptions.my_exceptions import DateWrongType
 from .models import *
 
 from datetime import datetime
@@ -24,7 +25,6 @@ def reserve_room_data(request):
             check_in_date = request.POST.get('check-in')
             check_out_date = request.POST.get('check-out')
             additional_message = request.POST.get('message')
-
             price = calculate_price(room_type_id, room_option_id, check_in_date, check_out_date)
 
             reserved_room = ReservedRoom(
@@ -52,10 +52,11 @@ def reserve_room_data(request):
                 )
 
                 return redirect('success_room_reservation_page')
+
             else:
                 return render(request, 'hotel_rooms/no_free_rooms.html')
         except:
-            return incorrect_date_type(request)
+            return render(request, 'reservation_incorrect_date_type.html')
 
 
 def calculate_price(room_type_id, room_option_id, check_in_date, check_out_date):
@@ -86,10 +87,9 @@ def reserved_days_qty(check_in_date, check_out_date):
     date_out = datetime.strptime(check_out_date, '%Y-%m-%d').date()
     date_now = datetime.now().date()
     if (date_in - date_now).days < 0 or (date_out - date_in).days < 1:
-        raise ValueError
+        raise DateWrongType
     date_delta = (date_out - date_in).days
     return date_delta
 
 
-def incorrect_date_type(request):
-    return render(request, 'hotel_rooms/room_reservation_incorrect_date_type.html')
+

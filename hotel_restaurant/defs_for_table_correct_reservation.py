@@ -2,7 +2,10 @@ from django.http import HttpResponse
 
 from django.shortcuts import redirect, render
 
+from myexceptions.my_exceptions import DateWrongType
 from .models import ReservedTable, Table
+
+from datetime import datetime
 
 
 def reserve_table(request):
@@ -25,6 +28,9 @@ def reserve_table(request):
                 reservation_time=reservation_time,
                 table_type=table_type
             )
+
+            if not check_correct_datetime(reservation_date,reservation_time):
+                raise DateWrongType
             if not correct_guests_qty(table_type, guest_qty):
                 return render(request, 'hotel_restaurant/wrong_qty_for_guests.html')
 
@@ -34,8 +40,8 @@ def reserve_table(request):
             reserved_table.save()
 
             return redirect('success_table_registration_page')
-        except Exception as ex:
-            return HttpResponse(ex)
+        except :
+            return render(request, 'reservation_incorrect_date_type.html')
 
 
 def correct_guests_qty(table_object, guest_qty):
@@ -49,3 +55,9 @@ def is_free_table(table_object):
         return True
     return False
 
+
+def check_correct_datetime(reservation_date, reservation_time):
+    reservation_datetime_str = f'{reservation_date} {reservation_time}'
+    reservation_datetime = datetime.strptime(reservation_datetime_str, '%Y-%m-%d %H:%M')
+    time_delta = (reservation_datetime - datetime.now()).total_seconds()
+    return time_delta > 0

@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles_for_success_user_registration.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Registration Successful</h1>
+        <p>Your registration was successful. You can now log in to your account.</p>
+        <a href="{% url 'login' %}" class="button">Log In</a>
+    </div>
+</body>
+</html>

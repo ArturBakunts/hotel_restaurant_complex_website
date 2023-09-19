@@ -14,60 +14,67 @@
 </div>
 
 <div class="container">
-    <div class="left-side">
-        <h2>Personal Information</h2>
-        <form method="post" action="#">
-            {% csrf_token %}
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    <form method="post" action="{% url 'registration_user_data' %}">
+        {% csrf_token %}
+        <div class="info-container">
+            <div class="left-side">
+                <h2>Personal Information</h2>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required pattern="[A-Za-z-]+">
 
-            <label for="surname">Surname</label>
-            <input type="text" id="surname" name="surname" placeholder="Enter your surname" required>
+                <label for="surname">Surname</label>
+                <input type="text" id="surname" name="surname" placeholder="Enter your surname" required
+                       pattern="[A-Za-z-]+">
 
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone"
+                       placeholder="Enter your phone number in this format 003749312345678" required pattern="[0-9]+">
 
-            <label for="email">Email</label>
-            <input type="text" id="email" name="email" placeholder="Enter your email" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" class="email-input" placeholder="Enter your email" required>
 
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" class="password-input"
-                   placeholder="Enter your password" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" class="password-input"
+                       placeholder="Enter your password" required pattern=".{6,}">
 
-            <label for="confirm">Confirm Password</label>
-            <input type="password" id="confirm" name="confirm" class="password-input"
-                   placeholder="Confirm your password" required>
+                <label for="confirm">Confirm Password</label>
+                <input type="password" id="confirm" name="confirm" class="password-input"
+                       placeholder="Confirm your password" required pattern=".{6,}">
 
+                <span class="error">Passwords do not match.</span>
 
-        </form>
-    </div>
+            </div>
 
-    <div class="right-side">
-        <h2>Payment Information</h2>
-        <form method="post" action="#">
-            {% csrf_token %}
+            <div class="right-side">
+                <h2>Payment Information</h2>
+                <label for="country">Country/Region</label>
+                <input type="text" id="country" name="country" placeholder="Enter your Country/Region" required
+                       pattern="[A-Za-z]+">
 
-            <label for="country">Country/Region</label>
-            <input type="text" id="country" name="country" placeholder="Enter your Country/Region" required>
+                <label for="passport">Passport ID</label>
+                <input type="text" id="passport" name="passport" placeholder="Enter your passport ID" required>
 
-            <label for="passport">Passport ID</label>
-            <input type="text" id="passport" name="passport" placeholder="Enter your passport ID" required>
+                <label for="card">Bank Card Number</label>
+                <input type="text" id="card" name="card" placeholder="Enter your bank card number" pattern="\d{16}"
+                       required>
 
-            <label for="card">Bank Card Number</label>
-            <input type="text" id="card" name="card" placeholder="Enter your bank card number" required>
+                <label for="expiration">Expiration Date</label>
 
-            <label for="expiration">Expiration Date</label>
-            <input type="text" id="expiration" name="expiration" placeholder="Enter expiration date" required>
+                <input type="text" id="expiration" name="expiration"
+                       placeholder="Enter expiration date in this format 01/01" required
+                       pattern="^(0[1-9]|1[0-2])\/\d{2}$">
 
-            <label for="cvv">CVV</label>
-            <input type="password" id="cvv" name="cvv" class="password-input" placeholder="Enter CVV" required>
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" class="password-input" placeholder="Enter CVV" pattern="\d{3}"
+                       required>
 
-        </form>
-    </div>
-</div>
+            </div>
+        </div>
 
-<div class="buttons">
-    <button type="submit" class="button">Register</button>
+        <div class="buttons">
+            <button type="submit" class="button">Register</button>
+        </div>
+    </form>
 </div>
 </body>
 </html>

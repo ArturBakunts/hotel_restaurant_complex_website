@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problems with Registration</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles_for_user_registration_failed.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Problems with Registration</h1>
+
+            <p id="error-message">
+            {{ error_message }}
+        </p>
+            There was an error during registration.Try another data.
+        </p>
+    </div>
+</body>
+</html>
