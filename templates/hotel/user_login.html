@@ -10,7 +10,6 @@
 <body>
 <div class="top-left-buttons">
     <a class="nav-button" href="{% url 'homepage' %}">Home</a>
-    <a class="nav-button" href="{% url 'registration' %}">Register</a>
 </div>
 <div class="login-container">
     <h2>Login</h2>
@@ -34,6 +33,9 @@
             <input type="password" id="password" name="password" required>
         </div>
         <button type="submit">Login</button>
+        <div class="register-link-container">
+            <a class="register-link" href="{% url 'registration' %}">Register</a>
+        </div>
     </form>
 </div>
 </body>

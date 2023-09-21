@@ -4,6 +4,7 @@ body, h2, form {
     padding: 0;
 }
 
+
 body {
     background-color: #967859;
     font-family: Arial, sans-serif;
@@ -13,29 +14,30 @@ body {
     height: 100vh;
 }
 
-/* Container for the top-left buttons */
+
 .top-left-buttons {
     position: absolute;
-    top: 10px;
+    top: 15px;
     left: 10px;
 }
 
-/* Style for the navigation buttons */
+
 .top-left-buttons .nav-button {
-    background-color: #967859;
-    color: #fff;
-    padding: 10px 20px;
+    background-color: #fff;
+    color: #967859;
+    padding: 10px 50px;
     border-radius: 5px;
     text-decoration: none;
     margin-right: 10px;
     font-size: 18px;
 }
 
+
 .top-left-buttons .nav-button:hover {
     background-color: #B9AFA1;
 }
 
-/* Login container styles */
+
 .login-container {
     background-color: #fff;
     padding: 20px;
@@ -46,14 +48,17 @@ body {
     width: 100%;
 }
 
+
 h2 {
     color: #967859;
 }
+
 
 form {
     display: flex;
     flex-direction: column;
 }
+
 
 .input-group {
     margin: 10px 0;
@@ -62,9 +67,11 @@ form {
     align-items: flex-start;
 }
 
+
 label {
     color: #967859;
 }
+
 
 input[type="email"],
 input[type="password"] {
@@ -76,17 +83,31 @@ input[type="password"] {
     font-size: 16px;
 }
 
-button {
+
+button, .register-link {
     background-color: #967859;
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 10px 115px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 18px;
     margin-top: 10px;
+    display: inline-block;
+    text-decoration: none;
 }
 
-button:hover {
+
+button:hover, .register-link:hover {
     background-color: #B9AFA1;
+}
+
+
+.register-link-container {
+    text-align: center;
+}
+
+
+a {
+    text-decoration: none;
 }
