@@ -1,10 +1,12 @@
 from django.db import IntegrityError
 from django.shortcuts import render, redirect
-
 from myexceptions.my_exceptions import PasswordConfirmError
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
 from .models import MyUser
 from hotel_rooms.models import Room
-from django.contrib.auth.models import User
+from django.contrib.auth.views import LogoutView
 
 
 def index(request):
@@ -21,10 +23,6 @@ def about_us(request):
 
 def registrate_user(request):
     return render(request, 'hotel/user_registration.html')
-
-
-def login_user(request):
-    return render(request, 'hotel/user_login.html')
 
 
 def registration_user_data(request):
@@ -72,6 +70,24 @@ def registration_user_data(request):
             error_message = "Password and Confirm Password do not match."
 
         return render(request, 'hotel/user_registration_failed.html', {'error_message': error_message})
+
+
+def user_login(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+        password = request.POST['password']
+        user = authenticate(request, username=email, password=password)
+        if user is not None:
+            login(request, user)
+
+            redirect_url = request.session.get('reserve_room_redirect', 'homepage')
+            request.session.pop('reserve_room_redirect', None)
+
+            return redirect(redirect_url)
+        else:
+            messages.error(request, 'Invalid email or password. Please try again.')
+            pass
+    return render(request, 'hotel/user_login.html')
 
 
 def success_user_reservation(request):

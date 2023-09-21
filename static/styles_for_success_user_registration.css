@@ -24,21 +24,21 @@ body {
 }
 
 h1 {
-    color: #967859; /* Match the title color of the registration page */
+    color: #967859;
     font-size: 36px;
     margin-bottom: 10px;
 }
 
 p {
     font-size: 18px;
-    color: #B9AFA1; /* Match the text color of the registration page */
+    color: #B9AFA1;
     margin-bottom: 20px;
 }
 
 .button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #756A5E; /* Match the button background color of the registration page */
+    background-color: #756A5E;
     color: #fff;
     font-size: 18px;
     text-decoration: none;
@@ -47,5 +47,5 @@ p {
 }
 
 .button:hover {
-    background-color: #B9AFA1; /* Change the button color on hover */
+    background-color: #B9AFA1;
 }

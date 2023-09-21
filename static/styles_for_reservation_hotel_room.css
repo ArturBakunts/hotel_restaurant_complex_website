@@ -1,4 +1,4 @@
-/* Reset some default styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -176,4 +176,21 @@ footer p {
     font-size: 18px;
     margin: 10px 0;
     color: #fff;
+}
+
+/* Style for the login link */
+.login-button {
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #967859;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    display: inline-block; /* Add this to make it behave like a button */
+}
+
+/* Hover effect for the login link */
+.login-button:hover {
+    background-color: #A86635;
 }

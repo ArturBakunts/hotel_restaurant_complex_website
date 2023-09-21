@@ -1,5 +1,4 @@
 from django.contrib import admin
-
 from . import models
 
 # hotel-admin bakuntsartur93@gmail.com 12345

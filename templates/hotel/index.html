@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
     {% load static %}
+    <!DOCTYPE html>
     <html lang="en">
     <head>
-        {% load static %}
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>BakArt Hotel</title>
@@ -16,23 +16,33 @@
     </header>
 
     <nav>
-        <!-- Use a specific class for the first three buttons -->
         <a href="{% url 'reservation_room' %}" class="nav-bar-buttons non-hover">Make a Reservation</a>
         <a href="{% url 'dining' %}" class="nav-bar-buttons non-hover">Dining</a>
         <a href="{% url 'about' %}" class="nav-bar-buttons non-hover">About Us</a>
-        <!-- Wrap the "Sign in or Join" label in a span with a specific class -->
+
+
         <span class="sign-in-button">
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
             <label class="modal-label" for="modal-checkbox">Sign in or Join</label>
-        </span>
-        <!-- Hidden checkbox to control the modal display -->
+        {% endif %}
+    </span>
+
+
         <input type="checkbox" id="modal-checkbox" class="modal-checkbox">
-        <!-- The modal options -->
+
+
         <div class="modal-content">
-            <!-- Close button inside the modal -->
+
             <label class="modal-close" for="modal-checkbox">&times;</label>
             <div class="modal-options">
-                <a href="{% url 'login' %}">Login</a>
-                <a href="{% url 'registration' %}">Register</a>
+                {% if user.is_authenticated %}
+
+                {% else %}
+                    <a href="{% url 'login' %}">Login</a>
+                    <a href="{% url 'registration' %}">Register</a>
+                {% endif %}
             </div>
         </div>
     </nav>

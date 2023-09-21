@@ -1,18 +1,18 @@
+from datetime import datetime
 from django.shortcuts import render, redirect
-
 from myexceptions.my_exceptions import DateWrongType
 from .models import *
-
-from datetime import datetime
-
 from .send_success_email import send_confirmation_email
+from django.contrib.auth.decorators import login_required
 
 
 def reserve_room(request):
     room_types = Room.objects.all()
     room_options = RoomOption.objects.all()
+    is_authenticated = request.user.is_authenticated
+    request.session['reserve_room_redirect'] = request.get_full_path()
     return render(request, 'hotel_rooms/reservation_hotel_room.html',
-                  {'room_types': room_types, 'room_options': room_options})
+                  {'room_types': room_types, 'room_options': room_options, 'is_authenticated': is_authenticated})
 
 
 def reserve_room_data(request):
@@ -90,6 +90,3 @@ def reserved_days_qty(check_in_date, check_out_date):
         raise DateWrongType
     date_delta = (date_out - date_in).days
     return date_delta
-
-
-

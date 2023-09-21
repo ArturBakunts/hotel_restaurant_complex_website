@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Room Reservation</title>
-    <link rel="stylesheet" type="text/css" href="../../static/styles_for_reservation_hotel_room.css">
+     <link rel="stylesheet" type="text/css" href="{% static 'styles_for_reservation_hotel_room.css' %}">
 </head>
 <body>
 <header>
@@ -15,56 +16,65 @@
 </header>
 
 <div class="container">
-    <div class="reservation-form">
-        <h2>Reservation Details</h2>
-        <form method="post" action="{% url 'reservation_room_data' %}">
-            {% csrf_token %}
-            <div class="form-group">
-                <label for="name">Full Name:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
+    {% if is_authenticated %}
+        <div class="reservation-form">
+            <h2>Reservation Details</h2>
+            <form method="post" action="{% url 'reservation_room_data' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
 
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
 
-            <div class="form-group">
-                <label for="room-type">Room Type:</label>
-                <select id="room-type" name="room-type" required>
-                    {% for room_type in room_types %}
-                        <option value="{{ room_type.id }}">{{ room_type.title }}</option>
-                    {% endfor %}
-                </select>
-            </div>
+                <div class="form-group">
+                    <label for="room-type">Room Type:</label>
+                    <select id="room-type" name="room-type" required>
+                        {% for room_type in room_types %}
+                            <option value="{{ room_type.id }}">{{ room_type.title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
 
-            <div class="form-group">
-                <label for="room-option">Room Option:</label>
-                <select id="room-option" name="room-option" required>
-                    {% for room_option in room_options %}
-                        <option value="{{ room_option.id }}">{{ room_option.title }}</option>
-                    {% endfor %}
-                </select>
-            </div>
+                <div class="form-group">
+                    <label for="room-option">Room Option:</label>
+                    <select id="room-option" name="room-option" required>
+                        {% for room_option in room_options %}
+                            <option value="{{ room_option.id }}">{{ room_option.title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
 
-            <div class="form-group">
-                <label for="check-in">Check-In Date:</label>
-                <input type="date" id="check-in" name="check-in" required>
-            </div>
+                <div class="form-group">
+                    <label for="check-in">Check-In Date:</label>
+                    <input type="date" id="check-in" name="check-in" required>
+                </div>
 
-            <div class="form-group">
-                <label for="check-out">Check-Out Date:</label>
-                <input type="date" id="check-out" name="check-out" required>
-            </div>
+                <div class="form-group">
+                    <label for="check-out">Check-Out Date:</label>
+                    <input type="date" id="check-out" name="check-out" required>
+                </div>
 
-            <div class="form-group">
-                <label for="message">Additional Message:</label>
-                <textarea id="message" name="message" rows="4"></textarea>
-            </div>
+                <div class="form-group">
+                    <label for="message">Additional Message:</label>
+                    <textarea id="message" name="message" rows="4"></textarea>
+                </div>
 
-            <button type="submit" name="submit">Submit Reservation</button>
-        </form>
-    </div>
+                <button type="submit" name="submit">Submit Reservation</button>
+            </form>
+        </div>
+
+    {% else %}
+<div class="not-logged-in">
+    <p style="font-size: 20px; font-weight: bold;">
+        If you want to reserve a room, please <a class="login-button" href="{% url 'login' %}">Login</a>
+    </p>
+</div>
+    {% endif %}
 
     <div class="package">
         <h3>Standard Package</h3>
@@ -119,6 +129,4 @@
 </footer>
 </body>
 </html>
-
-
 

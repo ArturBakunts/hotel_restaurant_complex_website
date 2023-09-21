@@ -1,3 +1,9 @@
+
+body, h2, form {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background-color: #967859;
     font-family: Arial, sans-serif;
@@ -5,9 +11,31 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
 }
 
+/* Container for the top-left buttons */
+.top-left-buttons {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+/* Style for the navigation buttons */
+.top-left-buttons .nav-button {
+    background-color: #967859;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.top-left-buttons .nav-button:hover {
+    background-color: #B9AFA1;
+}
+
+/* Login container styles */
 .login-container {
     background-color: #fff;
     padding: 20px;

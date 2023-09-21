@@ -1,5 +1,4 @@
 from django.shortcuts import render
-
 from . import defs_for_room_correct_reservation
 
 

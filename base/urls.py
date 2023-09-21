@@ -18,7 +18,6 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-
 from hotel.upload_data_to_db_first_time import def_for_first_config
 
 urlpatterns = [

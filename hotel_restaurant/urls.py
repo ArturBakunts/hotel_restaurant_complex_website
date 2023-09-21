@@ -1,5 +1,4 @@
 from django.urls import path
-
 from . import views
 
 urlpatterns = [path('reserve/table/', views.reserve_table, name='reserve_table'),
