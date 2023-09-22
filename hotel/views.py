@@ -1,4 +1,5 @@
 from django.db import IntegrityError
+from django.http import HttpResponseNotFound
 from django.shortcuts import render, redirect
 from myexceptions.my_exceptions import PasswordConfirmError
 from django.contrib.auth.models import User
@@ -92,3 +93,7 @@ def user_login(request):
 
 def success_user_reservation(request):
     return render(request, 'hotel/success_user_registration.html')
+
+
+def page_not_found_404(request, exception):
+    return render(request, 'hotel/page_not_found.html', status=404)

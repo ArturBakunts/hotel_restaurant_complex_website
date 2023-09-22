@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 
-/* Set background color to match the homepage */
 body {
     background-color: #967859;
     color: #B9AFA1;
@@ -59,7 +58,7 @@ header h1 {
 
 .about-us h2 {
     font-size: 24px;
-    color: #967859; /* HEX #967859 */
+    color: #967859;
     margin-bottom: 10px;
 }
 

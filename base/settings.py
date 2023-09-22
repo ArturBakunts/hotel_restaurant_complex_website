@@ -26,7 +26,9 @@ SECRET_KEY = "django-insecure-2i9s&xr@jgq@crxnha=xrg7ph*p65i3k@v=eow75c*23+(28$i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
+
+handler404 = 'hotel.views.page_not_found_404'
 
 # Application definition
 
