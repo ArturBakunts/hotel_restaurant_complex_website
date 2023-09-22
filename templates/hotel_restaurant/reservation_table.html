@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-{% load static %}
+    {% load static %}
 
     <html lang="en">
     <head>
@@ -21,7 +21,18 @@
         </nav>
     </header>
 
+
     <div class="registration-container">
+               <div class="thank-you-message">
+            {% if user.is_authenticated %}
+            <p>Welcome dear {{ user.first_name }} {{ user.last_name }}!</p>
+            <p>Thank you for choosing BakArt Restaurant And Hotel Complex.</p>
+            <p>You are currently logged in and eligible for a 7% discount in our restaurant.</p>
+        {% else %}
+            <p>Thank you for considering BakArt Restaurant And Hotel Complex!</p>
+            <p>If you log in or create an account, you'll be eligible for a 7% discount in our restaurant.</p>
+        {% endif %}
+        </div>
         <form method="post" action="{% url 'reserve_table' %}">
             {% csrf_token %}
             <div class="registration-block">
@@ -59,6 +70,7 @@
 
             <button class="registration-button" type="submit">Reserve Table</button>
         </form>
+
     </div>
     </body>
     </html>

@@ -26,6 +26,7 @@ class RoomOption(models.Model):
 
 class ReservedRoom(models.Model):
     full_name = models.CharField(max_length=250, default='')
+    phone = models.CharField(max_length=20)
     email = models.EmailField(default='')
     type = models.ForeignKey(Room, on_delete=models.CASCADE)
     option = models.ForeignKey(RoomOption, on_delete=models.CASCADE)
@@ -34,6 +35,7 @@ class ReservedRoom(models.Model):
     price = models.IntegerField(default=0)
     created_at = models.DateTimeField(default=timezone.now)
     additional_message = models.CharField(max_length=250, default='empty')
+    promo_code = models.CharField(max_length=250, default='empty')
 
     def __str__(self):
         return self.full_name

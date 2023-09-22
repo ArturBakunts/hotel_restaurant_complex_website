@@ -4,9 +4,11 @@ from myexceptions.my_exceptions import DateWrongType
 from .models import ReservedTable, Table
 
 
+
 def reserve_table(request):
     if request.method == 'POST':
         try:
+            user = request.user if request.user.is_authenticated else None
             name = request.POST.get('name')
             phone = request.POST.get('phone')
             email = request.POST.get('email')
@@ -16,6 +18,7 @@ def reserve_table(request):
             table_type = Table.objects.all()[0]
 
             reserved_table = ReservedTable(
+                user=user,
                 name=name,
                 phone=phone,
                 email=email,
@@ -23,6 +26,7 @@ def reserve_table(request):
                 reservation_date=reservation_date,
                 reservation_time=reservation_time,
                 table_type=table_type
+
             )
 
             if not check_correct_datetime(reservation_date, reservation_time):
@@ -32,6 +36,7 @@ def reserve_table(request):
 
             if not is_free_table(table_type):
                 return render(request, 'hotel_restaurant/no_free_tables.html')
+
 
             reserved_table.save()
 

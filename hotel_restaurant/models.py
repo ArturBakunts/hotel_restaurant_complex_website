@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
 
@@ -11,6 +12,7 @@ class Table(models.Model):
 
 
 class ReservedTable(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     name = models.CharField(max_length=100)
     phone = models.CharField(max_length=20)
     email = models.EmailField(default='')

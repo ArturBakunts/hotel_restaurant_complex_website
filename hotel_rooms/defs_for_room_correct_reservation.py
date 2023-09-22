@@ -1,4 +1,6 @@
 from datetime import datetime
+
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from myexceptions.my_exceptions import DateWrongType
 from .models import *
@@ -19,22 +21,27 @@ def reserve_room_data(request):
     if request.method == 'POST':
         try:
             full_name = request.POST.get('name')
+            phone = request.POST.get('phone')
             email = request.POST.get('email')
             room_type_id = request.POST.get('room-type')
             room_option_id = request.POST.get('room-option')
             check_in_date = request.POST.get('check-in')
             check_out_date = request.POST.get('check-out')
+            promo_code = request.POST.get('promo-code')
             additional_message = request.POST.get('message')
-            price = calculate_price(room_type_id, room_option_id, check_in_date, check_out_date)
+
+            price = calculate_price(room_type_id, room_option_id, check_in_date, check_out_date, promo_code)
 
             reserved_room = ReservedRoom(
                 full_name=full_name,
+                phone=phone,
                 email=email,
                 type_id=room_type_id,
                 option_id=room_option_id,
                 check_in_date=check_in_date,
                 check_out_date=check_out_date,
                 price=price,
+                promo_code=promo_code,
                 additional_message=additional_message
             )
 
@@ -59,7 +66,7 @@ def reserve_room_data(request):
             return render(request, 'reservation_incorrect_date_type.html')
 
 
-def calculate_price(room_type_id, room_option_id, check_in_date, check_out_date):
+def calculate_price(room_type_id, room_option_id, check_in_date, check_out_date, promo_code):
     room_type = Room.objects.get(pk=room_type_id)
     room_type_pr = room_type.default_price
     room_opt = RoomOption.objects.get(pk=room_option_id)
@@ -69,6 +76,10 @@ def calculate_price(room_type_id, room_option_id, check_in_date, check_out_date)
 
     price = (room_type_pr + room_opt_pr) * date_delta
 
+    if promo_code.lower() in promo_codes_list_10:
+        price -= price // 10
+    elif promo_code.lower() in promo_codes_list_5:
+        price -= price // 20
     return price
 
 
@@ -90,3 +101,7 @@ def reserved_days_qty(check_in_date, check_out_date):
         raise DateWrongType
     date_delta = (date_out - date_in).days
     return date_delta
+
+
+promo_codes_list_10 = ['python', 'django', 'hotel', 'promo10', 'pr10omo', 'python2023']
+promo_codes_list_5 = ['django2023', 'bakart_hotel', 'promo05', 'pr05omo', 'pyt2023']

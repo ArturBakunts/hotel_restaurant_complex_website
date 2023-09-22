@@ -92,3 +92,8 @@ nav {
 .registration-button:hover {
     background-color: #B9AFA1;
 }
+
+.thank-you-message {
+    font-size: 19px;
+    /* Add other styling properties as needed */
+}
