@@ -28,6 +28,6 @@ urlpatterns = [
     path('test/', def_for_first_config.test, name='test'),
 
 ]
-
+handler404 = 'hotel.views.page_not_found_404'
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

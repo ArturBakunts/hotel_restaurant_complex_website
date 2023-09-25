@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 import os
 from pathlib import Path
+
 from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,8 +29,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1']
 
-handler404 = 'hotel.views.page_not_found_404'
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -44,7 +43,6 @@ INSTALLED_APPS = [
     "hotel.apps.HotelConfig",
 
 ]
-
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
@@ -129,6 +127,7 @@ USE_TZ = True
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
