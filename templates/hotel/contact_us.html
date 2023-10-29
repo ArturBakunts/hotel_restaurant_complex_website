@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+    {% load static %}
+    <html lang="en">
+        <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact Us</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles_for_contact_us.css' %}">
+
+    </head>
+        <header>
+        <div class="home-button">
+            <a href="{% url 'homepage' %}">Home</a>
+        </div>
+        <h1 class="centered-header">Contact Us</h1>
+    <p class="centered-header">We'd love to hear from you!</p>
+    </header>
+
+
+    <form method="post" class="contact-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Send Message</button>
+    </form>
+{% endblock %}

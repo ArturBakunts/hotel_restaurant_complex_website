@@ -49,7 +49,3 @@ def create_restaurant_table_model():
         free_tables_qty=25
     )
     table.save()
-
-
-def test(request):
-    return render(request, 'test.html')

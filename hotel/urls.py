@@ -6,6 +6,7 @@ urlpatterns = [
     path('', views.index, name='homepage'),
     path('about/', views.about_us, name='about'),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('contact/', views.contact_us, name='contact'),
     path('logout/', views.LogoutView.as_view(), name='logout'),
     path('success/user/registration', views.success_user_reservation, name='success_user_reservation_page'),
     path('upload/data/', def_for_first_config.upload_data, name='upload'),

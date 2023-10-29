@@ -1,11 +1,11 @@
 from django.db import IntegrityError
-from django.http import HttpResponseNotFound
 from django.shortcuts import render, redirect
 from myexceptions.my_exceptions import PasswordConfirmError
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
-from .models import MyUser
+from .forms import ContactForm
+from .models import MyUser, ContactUsMessage
 from hotel_rooms.models import Room
 from django.contrib.auth.views import LogoutView
 
@@ -20,6 +20,23 @@ def index(request):
 
 def about_us(request):
     return render(request, 'hotel/about.html')
+
+
+def contact_us(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+
+            contact_message = ContactUsMessage(name=name, email=email, message=message)
+            contact_message.save()
+
+            return redirect('homepage')
+    else:
+        form = ContactForm()
+    return render(request, 'hotel/contact_us.html', {'form': form})
 
 
 def registrate_user(request):

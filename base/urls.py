@@ -25,7 +25,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('hotel/', include('hotel_rooms.urls')),
     path('restaurant/', include('hotel_restaurant.urls')),
-    path('test/', def_for_first_config.test, name='test'),
 
 ]
 handler404 = 'hotel.views.page_not_found_404'
